@@ -7,9 +7,9 @@ Redmine::Plugin.register :redmine_add_watcher_notifier do
     sends email notification to user when he is added as issue's watcher
     (puts 'config.active_record.observers = :watcher_observer' in config/additional_environment.rb)
   eos
-  version '2.0.0'
+  version '2.1.0'
   url 'https://github.com/piccio/redmine_add_watcher_notifier'
   author_url 'https://github.com/piccio'
 
-  settings default: { enable_log: false }, partial: 'settings/add_watcher_notifier'
+  settings default: { enable_log: false, subject: '' }, partial: 'settings/add_watcher_notifier'
 end

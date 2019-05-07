@@ -5,7 +5,31 @@ class AddWatcherMailer < Mailer
     @issue = issue
     @users = [user]
     @issue_url = url_for(:controller => 'issues', :action => 'show', :id => issue)
-    mail to: user.mail,
-         subject: l(:added_as_watcher_subject, issue: @issue.id, scope: :add_watcher_notifier)
+    if Setting.plugin_redmine_add_watcher_notifier['subject'].blank?
+      subject = l(:default_subject, issue: @issue.id, scope: :add_watcher_notifier)
+    else
+      subject = mail_fiddler_format(Setting.plugin_redmine_add_watcher_notifier['subject'], issue )
+    end
+
+    mail to: user.mail, subject: subject
+  end
+
+  private
+
+  def mail_fiddler_format(fmt_string, issue)
+    fmt_string.gsub(/(\{(project|tracker|issue_id|subject|status)\})/i).each do |w|
+      case w.downcase
+      when "{project}"
+        issue.project.name
+      when "{tracker}"
+        issue.tracker.name
+      when "{issue_id}"
+        "##{issue.id}"
+      when "{subject}"
+        issue.subject
+      when "{status}"
+        issue.status.name
+      end
+    end
   end
 end

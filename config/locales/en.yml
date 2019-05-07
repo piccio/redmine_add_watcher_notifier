@@ -1,7 +1,11 @@
 # English strings go here for Rails i18n
 en:
   add_watcher_notifier:
-    added_as_watcher_subject: 'You are added as watcher to issue #%{issue}'
+    default_subject: 'You are added as watcher to issue #%{issue}'
     added_as_watcher: 'You are added as watcher to issue #%{issue} by %{author}'
     enable_log: 'enable log'
     enable_log_info: 'check to enable log in log/add_watcher_notifier.log'
+    subject_configuration: 'Emails subject'
+    subject_label: 'Subject'
+    settings_replace_fields_text: 'In the subject field, the following variables gets substituted:'
+    subject_placeholder: 'You are added as watcher to issue {issue_id}'

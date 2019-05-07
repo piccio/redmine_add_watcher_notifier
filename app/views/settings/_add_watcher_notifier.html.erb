@@ -1,3 +1,23 @@
+<%= field_set_tag do %>
+  <u><b><%= l(:subject_configuration, scope: :add_watcher_notifier) %></b></u>
+  <br/>
+  <br/>
+  <%= l(:settings_replace_fields_text, scope: :add_watcher_notifier) %>
+  <ul>
+    <li><code>{project}</code> : <%= l(:label_project) %></li>
+    <li><code>{tracker}</code> : <%= l(:label_tracker) %></li>
+    <li><code>{issue_id}</code> : <%= l(:field_identifier) %></li>
+    <li><code>{subject}</code> : <%= l(:field_subject) %></li>
+    <li><code>{status}</code> : <%= l(:label_issue_status) %></li>
+  </ul>
+  <br/>
+  <p>
+    <%= label_tag 'settings[subject]', l(:subject_label, scope: :add_watcher_notifier) %>
+    <%= text_field_tag('settings[subject]', @settings['subject'], size: 75,
+                       placeholder: l(:subject_placeholder, scope: :add_watcher_notifier)  ) %>
+  </p>
+<% end %>
+
 <p>
   <%= label 'settings[enable_log]', l(:enable_log, scope: :add_watcher_notifier) %>
   <%= hidden_field_tag('settings[enable_log]', false) %>
