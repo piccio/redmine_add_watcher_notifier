@@ -1,4 +1,4 @@
 <%= l(:added_as_watcher, issue: @issue.id, author: User.current.login, scope: :add_watcher_notifier) %>
 
 ----------------------------------------
-<%= render partial: 'issue', formats: [:text], locals: { issue: @issue, users: @users, issue_url: @issue_url } %>
+<%= render partial: 'issue', formats: [:text], locals: { issue: @issue, user: @user, issue_url: @issue_url } %>

@@ -1,7 +1,9 @@
 = redmine_add_watcher_notifier
 
-use version 1.0.0 with redmine 2.x (tested on 2.6.0)
+use version 1.x with redmine 2.x (tested on 2.6.0)
 
-use version 2.0.0 with redmine 3.x (tested on 3.4.4)
+use version 2.x with redmine 3.x (tested on 3.4.4)
+
+use version 3.x with redmine 4.x (tested on 4.0.4)
 
 puts 'config.active_record.observers = :watcher_observer' in config/additional_environment.rb
