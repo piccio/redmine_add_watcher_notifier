@@ -1,6 +1,7 @@
 class AddWatcherMailer < Mailer
   # Builds a mail for notifying user about he is added as issue's watcher
   def watch_issue(user, issue)
+    message_id issue
     references issue
     @author = issue.author
     @issue = issue
