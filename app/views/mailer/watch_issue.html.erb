@@ -1,5 +1,5 @@
 <div>
-  <%= l(:added_as_watcher, issue: @issue.id, author: h(User.current.login), scope: :add_watcher_notifier) %>
+  <%= l(:added_as_watcher, issue: @issue.id, author: h(@action_author), scope: :add_watcher_notifier) %>
   <hr />
   <%= render partial: 'issue', formats: [:html], locals: { issue: @issue, user: @user, issue_url: @issue_url } %>
 </div>

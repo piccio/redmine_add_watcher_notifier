@@ -1,11 +1,12 @@
 class AddWatcherMailer < Mailer
-  # Builds a mail for notifying user about he is added as issue's watcher
-  def watch_issue(user, issue)
+  # Builds a mail for notifying user about he is added as issue's watcher by action's author
+  def watch_issue(user, issue, action_author)
     message_id issue
     references issue
     @author = issue.author
     @issue = issue
     @user = user
+    @action_author = action_author
     @issue_url = url_for(:controller => 'issues', :action => 'show', :id => issue)
     if Setting.plugin_redmine_add_watcher_notifier['subject'].blank?
       subject = l(:default_subject, issue: @issue.id, scope: :add_watcher_notifier)
